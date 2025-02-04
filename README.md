@@ -1,4 +1,4 @@
-Embed Python with pip Windows Installer 🪟
+# Embeddable Python with pip Windows Installer 🪟
 
 This PowerShell script downloads and installs the Windows embeddable Python package with pip support.
 
