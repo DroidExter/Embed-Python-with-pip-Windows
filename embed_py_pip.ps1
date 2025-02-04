@@ -1,8 +1,8 @@
 $ErrorActionPreference = "Inquire"
 
-$embeddable_python_link = "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-amd64.zip"
+$embeddable_python_link = "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-amd64.zip" # From https://www.python.org/downloads/windows/
 $output_python_dir = ".\python"
-$packages_to_install = ""
+$packages_to_install = "" # For example: "numpy", "gmpy2"
 
 Write-Output '---Downloading Python---'
 Invoke-WebRequest $embeddable_python_link -OutFile .\python.zip
@@ -20,7 +20,7 @@ Add-Content -Path "$output_python_dir\$pth_file_name" -Value "Lib\site-packages"
 Write-Output '---Pip instalation completed---'
 
 if ($packages_to_install){
-    & "$output_python_dir\python.exe" -m pip install $packages_to_install
+    & "$output_python_dir\python.exe" -m pip install $packages_to_install --no-warn-script-location
     Write-Output '---Python packages instalation completed---'
 }
 
